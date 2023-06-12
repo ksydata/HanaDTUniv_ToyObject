@@ -459,7 +459,8 @@ class TimeSeriesFeatureEngineering():
     Heteroscedasticity = pd.DataFrame([sm.stats.diagnostic.het_goldfeldquandt(Y_data, X_data.values, alternative = "two-sided")],
                                       index=['Heteroscedasticity'], columns=['Test Statistics', 'p-value', 'Alternative']).T
 
-    Score = pd.concat([Normality, # Autocorrelation, 
+    Score = pd.concat([self.stationary_adf, self.stationary_kpss, 
+                       Normality, # Autocorrelation, 
                        Heteroscedasticity], join = "outer", axis = 1)
       # [TypeError] cannot concatenate object of type '<class '__main__.TimeSeriesFeatureEngineering'>'; only Series and DataFrame objs are valid
 
