@@ -4,8 +4,6 @@ https://eunhye-zz.tistory.com/20
 $(m^p)*a_1 + (m^{p-1})*a_2 + \cdot $ 계수가 1에 가까울수록 시계열 데이터는 평균에서 벗어나는 경향을 보이며, 
 데이터의 계수 $m$이 1에 가까운지(있는지 없는지)를 체크하는 통계량 Augmented Dickey Fuller Test Statistics
 $m=1$일 경우 단위근(unit too)이 있다고 표현하며, 단위근을 제거하기 위해 차분(differencing)하면 WN이 정상 데이터로 변환되는 수학 형태
-
-
 import os
 import glob
 import pandas as pd
@@ -109,10 +107,13 @@ class Resource_HanaCapital():
             # 계층적 색인 생성
         columns_index = ["USER_NAME"]
         table_pivot = pd.pivot_table(
-            self.main_data, index = rows_index, columns = columns_index)
+            self.main_data.loc[:, ["DEPT_NM", "ROLE_NAME", "RESC_하나인권한", "USER_NAME"]],
+            index = rows_index,
+            columns = columns_index,
+            aggfunc = Counter)
         table_pivot.to_excel(os.path.join(self.file_path + "/" + "table_pivot.xlsx"))
             # ValueError: operands could not be broadcast together with shapes (1794054,) (1037141,) (1794054,)
-
+            # numpy.core._exceptions._ArrayMemoryError: Unable to allocate 3.17 GiB for an array with shape (231560, 1836) and data type object
 
 resource_1cap = Resource_HanaCapital(
     file_path = "C:/ResourceHanaCapital",
