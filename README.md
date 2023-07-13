@@ -1,6 +1,8 @@
 # HanaDT_ToyProject
 
 
+
+
 import pandas as pd
 import os
 import datetime
@@ -66,8 +68,12 @@ AInews_data.info()
     # [TAG_LIST] 뉴스 관련 태그(regex활용하여 태그 내 값 분리할 것)
     # [CONTENT] html
 
-
 # marketIndex_linearPCA의 시계열과 AInews_data의 시계열이 일치하지 않는 문제
+
+AInews_data["HHmmSS"] = AInews_data["DATE_TIME"].dt.
+    # .year .quarter .day .dayofweek
+AInews_data["YYYYMMDD"] = AInews_data["DATE_TIME"].dt.
+AInews_data.index = AInews_data["YYYYMMDD"]
 
 
 # def main():
