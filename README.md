@@ -54,7 +54,7 @@ $P(a \leq X \leq b) = \int_a^b f(x) dx$
 <aside>
 <img src="https://www.notion.so/icons/checkmark_gray.svg" alt="https://www.notion.so/icons/checkmark_gray.svg" width="40px" /> 
   
-$-2\sqrt{\frac{1}{n_A} + \frac{1}{n_B}} \leq (\bar{x_A} - \bar{x_B}) - (\mu_A - \mu_B) \leq + 2 s\sqrt{\frac{1}{n_A} + \frac{1}{n_B}}$
+$-2s\sqrt{\frac{1}{n_A} + \frac{1}{n_B}} \leq (\bar{x_A} - \bar{x_B}) - (\mu_A - \mu_B) \leq + 2 s\sqrt{\frac{1}{n_A} + \frac{1}{n_B}}$
 
 1. 귀무가설(H0) 수립 : $\mu_A - \mu_B = 0$
 
